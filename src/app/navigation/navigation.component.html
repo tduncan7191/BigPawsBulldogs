@@ -9,7 +9,7 @@
     <button mat-button routerLink="/dames">Dames</button>
     <button mat-button [matMenuTriggerFor]="puppies">Puppies</button>
     <button mat-button routerLink="/blog">Blog</button>
-    <button mat-button routerLink="/contact">Contact</button>
+    <button mat-button routerLink="/contact">Contact Us</button>
     <button mat-button routerLink="/admin/home">Admin</button>
     <button *ngIf="auth.IsAuthenticated" mat-button (click)="auth.logout()">Logout</button>
   </div>

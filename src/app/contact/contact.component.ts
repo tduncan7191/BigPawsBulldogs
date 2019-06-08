@@ -34,13 +34,13 @@ export class ContactComponent implements OnInit {
         return;
     }
     this.contact = {
-      toEmail: 'krduncan71@gmail.com',//'krduncan71@gmail.com', 
+      toEmail: 'tduncan@redemptionplus.com',//'krduncan71@yahoo.com',
       name: this.form.value.name, 
       email: this.form.value.email, 
       message: this.form.value.message
     };
     this.service.sendEmail(this.contact).then((response:any) => {
-      this.snackBar.open(response.res, "Close", {
+      this.snackBar.open(response.message, "Close", {
           duration: 2000,
       });
     })

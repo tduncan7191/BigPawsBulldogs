@@ -17,8 +17,12 @@ exports.SendEmail = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
         const mailOptions = {
             to: request.body.toEmail,
-            subject: `BigPawsBulldogs Inquiry from ${request.body.name}`,
-            text: `${request.body.message} ${request.body.email}`
+            subject: `BigPawsBulldogs Inquiry`,
+            text: ` Inquire form
+                name: ${request.body.name}
+                email: ${request.body.email}
+                message: ${request.body.message} 
+            `
         };
         mailTransport.sendMail(mailOptions).then(() => {
             return response.status(200).send({message: 'Mail sent!'});
