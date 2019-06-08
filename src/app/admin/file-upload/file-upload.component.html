@@ -1,0 +1,12 @@
+<div>
+    <input id="name" name="name" type="text" [(ngModel)]="dog.name" placeholder="Name" class="form-control"/>
+    <textarea rows="10" id="description" name="description" [(ngModel)]="dog.description" placeholder="description" class="form-control"></textarea>
+    <div id="file">
+        Choose File
+        <input type="file" (change)="addToFilesList($event.target.files)" multiple class="hide_file">
+    </div>
+    <div *ngFor="let file of files">
+        <span>{{file.name}}</span>
+    </div>
+    <button id="add" type="button" (click)="startUpload()" class="btn btn-secondary">Add</button>
+</div>

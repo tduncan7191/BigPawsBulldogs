@@ -1,0 +1,22 @@
+
+.card{
+    margin:1%;
+  }
+  
+  img{
+    height:400px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .text-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .centered {
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align:center;
+  }

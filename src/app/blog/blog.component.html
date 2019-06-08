@@ -1,0 +1,25 @@
+<div class="container">
+  <div *ngIf="featuredBlog" class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">{{featuredBlog.title}}</h1>
+      <div class="mb-1 text-muted">{{featuredBlog.date}}</div>
+      <p class="lead my-3">{{featuredBlog.content | slice:0:143}}...</p>
+      <p class="lead mb-0"><a href="/featuredBlog" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-md-6" *ngFor="let blog of blogs">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative text-white rounded bg-dark">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{blog.title}}</h3>
+          <div class="mb-1 text-muted">{{blog.date}}</div>
+          <p class="card-text mb-auto">{{blog.content | slice:0:143}}</p>
+          <a href="/blog-detail/{{blog.key}}" class="stretched-link">Continue reading</a>
+        </div>
+        <div *ngIf="blog.picture" class="col-auto d-none d-lg-block">          
+            <img src="{{blog.picture}}" class="bd-placeholder-img" width="200" height="250"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

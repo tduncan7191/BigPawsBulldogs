@@ -1,0 +1,8 @@
+<div class="content" fxLayout='row wrap' fxLayoutGap="2rem" fxLayoutAlign="center center">
+    <div fxFlex.gt-md="20" fxFlex.sm="40" fxFlex.xs="100" *ngFor="let dog of dogs">
+        <div class="card">
+            <h4 class="card-title">{{dog.name}} </h4>
+            <img *ngIf="dog.pictures" src="{{dog.pictures[0]}}" routerLink="./{{ dog.key }}">
+        </div>
+    </div>
+</div>

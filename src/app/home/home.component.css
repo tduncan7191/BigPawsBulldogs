@@ -1,0 +1,39 @@
+.matcard {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 1%;
+  text-align: center;
+  font-size: 40px;
+  background-color: #595853;
+}
+
+  .matcardImage {
+    max-width: 70%;
+    margin: auto;
+    margin-top: 3%;
+  }
+
+  .matcardAboutUs {
+    max-width: 40%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+header {
+  position: relative;
+  text-align: center;
+}
+h1 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #E7E6E2;
+}
+#logo {
+  width: 100%;
+  border-radius: 50%;
+  width: 10%;
+  height: 10%;
+}

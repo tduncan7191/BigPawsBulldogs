@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <input id="name" name="name" type="text" [(ngModel)]="blog.title" placeholder="Title" class="form-control"/>
+    </div>
+    <div class="col-md-3">        
+      <input type="file" (change)="onFileChange($event)">
+    </div>
+    <div class="col-md-3">
+      <button type="button" (click)="update(blog)">Update</button>
+    </div>
+    <div class="col-md-3">
+      <button type="button" (click)="delete(blog)">Delete</button>
+    </div>
+  </div>    
+  <div class="row">   
+    <div [ngClass]="[blog.picture ? 'col-md-8' : 'col-md-12']">
+      <textarea rows="10" id="content" name="content" [(ngModel)]="blog.content" placeholder="Content" class="form-control"></textarea>
+    </div>
+    <div *ngIf="blog.picture" class="col-md-4">      
+      <img src="{{blog.picture}}" width="200" height="250">
+    </div>
+  </div>
+</div>   
+  

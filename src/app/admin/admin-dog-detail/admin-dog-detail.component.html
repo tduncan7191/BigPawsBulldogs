@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="table">
+      <div class="row">
+        <div class="cell">
+          <input id="name" name="name" type="text" [(ngModel)]="dog.name" placeholder="Name" class="form-control"/>
+        </div>
+        <div class="cell">        
+          <input type="file" (change)="addToFilesList($event.target.files)">
+        </div>
+        <div class="cell">
+          <button type="button" (click)="update(dog)">Update</button>
+        </div>
+      </div>    
+    </div>
+    <div class="table">
+      <div class="row">      
+        <div class="cell">
+          <textarea rows="10" id="description" name="description" [(ngModel)]="dog.description" placeholder="description" class="form-control"></textarea>
+        </div>
+      </div>
+      <div class="row" fxLayout='row wrap' fxLayoutGap="2rem" fxLayoutAlign="center center">      
+        <mat-card fxFlex.gt-md="20" fxFlex.sm="40" fxFlex.xs="100" *ngFor="let picture of dog.pictures; let i = index">
+          
+          <mat-card-actions>
+            <button mat-button (click)="deletePicture(picture, i)">DELETE</button>
+          </mat-card-actions>
+          <img mat-card-image src="{{picture}}">
+        </mat-card>
+      </div>
+    </div>   
+  </div>
+  

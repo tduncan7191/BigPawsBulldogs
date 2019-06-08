@@ -1,0 +1,12 @@
+.card {
+  text-align: center;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+img {
+  height: 200px;
+  background-size: cover;
+}
