@@ -1,10 +1,7 @@
-<mat-toolbar class="toolbar">
-  <button mat-button routerLink="/">
-    <img id="logo" src="assets/img/logo.jpg"/>
-    𝓑𝓲𝓰𝓟𝓪𝔀𝓼𝓑𝓾𝓵𝓵𝓭𝓸𝓰𝓼
-  </button>
+<!--<mat-toolbar class="toolbar">
   <span class="menu-spacer"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/">Home</button>
     <button mat-button routerLink="/studs">Studs</button>
     <button mat-button routerLink="/dames">Dames</button>
     <button mat-button [matMenuTriggerFor]="puppies">Puppies</button>
@@ -17,6 +14,7 @@
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu" x-position="before">
+    <button mat-button routerLink="/">Home</button>
       <button mat-menu-item routerLink="/studs">Studs</button>
       <button mat-menu-item routerLink="/dames">Dames</button>
       <button mat-button [matMenuTriggerFor]="puppies">Puppies</button>      
@@ -29,4 +27,33 @@
       <button mat-menu-item routerLink="/admin">Admin</button>
       <button *ngIf="auth.IsAuthenticated" mat-button (click)="auth.logout()">Logout</button>
   </mat-menu>
+</mat-toolbar>
+-->    
+<mat-toolbar class="toolbar">  
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button routerLink="/studs">Studs</button>
+  <button mat-button routerLink="/dames">Dames</button>
+  <button mat-menu-item [matMenuTriggerFor]="puppies">Puppies<i class="arrow down"></i></button> 
+  <mat-menu #puppies="matMenu">
+      <button mat-menu-item routerLink="/past-puppies">Past Puppies</button>
+      <button mat-menu-item routerLink="/available-puppies">Available Puppies</button>
+  </mat-menu>
+  <span class="menu-spacer"></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/blog">Blog</button>
+    <button mat-button routerLink="/videos">Videos</button>
+    <button mat-button routerLink="/contact">Contact Us</button>
+    <button mat-button routerLink="/admin/home">Admin</button>
+    <button *ngIf="auth.IsAuthenticated" mat-button (click)="auth.logout()">Logout</button>
+  </div>
+  <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>  
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/blog">Blog</button>
+      <button mat-menu-item routerLink="/videos">Videos</button>
+      <button mat-menu-item routerLink="/contact">Contact Us</button>
+      <button mat-menu-item routerLink="/admin">Admin</button>
+      <button *ngIf="auth.IsAuthenticated" mat-button (click)="auth.logout()">Logout</button>
+  </mat-menu>   
 </mat-toolbar>

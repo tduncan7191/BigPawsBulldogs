@@ -1,8 +1,20 @@
-<div class="content" fxLayout='row wrap' fxLayoutGap="2rem" fxLayoutAlign="center center">
-    <div fxFlex.gt-md="20" fxFlex.sm="40" fxFlex.xs="100" *ngFor="let dog of dogs">
-        <div class="card">
-            <h4 class="card-title">{{dog.name}} </h4>
-            <img *ngIf="dog.pictures" src="{{dog.pictures[0]}}" routerLink="./{{ dog.key }}">
+ 
+<div class="card header">
+    <h1>{{dogType | titlecase}}</h1>
+</div>
+<div fxLayout='row wrap' fxLayoutAlign="center center">  
+    <div *ngIf="dogs?.length == 0" class="card message">
+        <span>None Available at this moment. Please check back when there's an update.</span>
+    </div>
+    <div class="content" fxFlex.gt-md="30" fxFlex.sm="40" fxFlex.xs="100" *ngFor="let dog of dogs; let i = index;">
+        <div *ngIf="dog.name" class="card">
+            <h1>{{dog.name}}</h1>
+        </div>
+        <div class="imageGallery">
+            <ngx-image-gallery [images]="galleryArray[i]" [conf]="conf"></ngx-image-gallery>
+        </div>
+        <div *ngIf="dog.description" class="card">
+            <p>{{dog.description}}</p>
         </div>
     </div>
 </div>

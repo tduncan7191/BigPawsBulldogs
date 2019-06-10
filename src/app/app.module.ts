@@ -21,10 +21,10 @@ import { ContactComponent } from './contact/contact.component';
 import { BlogComponent } from './blog/blog.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DogComponent } from './dog/dog.component';
-import { DogDetailComponent } from './dog-detail/dog-detail.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import * as firebase from 'firebase';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { VideosComponent } from './videos/videos.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -36,9 +36,9 @@ firebase.initializeApp(environment.firebase);
     BlogComponent,
     LoginComponent,
     DogComponent,
-    DogDetailComponent,
     NavigationComponent,
     BlogDetailComponent,
+    VideosComponent,
   ],
   imports: [
     BrowserAnimationsModule,

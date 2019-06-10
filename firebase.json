@@ -13,18 +13,20 @@
     "source": "functions"
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/bigPawsBulldogs",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "rewrites": [{
+      "source": "/dist/bigPawsBulldogs/**",
+      "destination": "/index.html"
+    },
+    {
+      "source": "**",
+      "destination": "/index.html"
+    }]
   },
   "storage": {
     "rules": "storage.rules"

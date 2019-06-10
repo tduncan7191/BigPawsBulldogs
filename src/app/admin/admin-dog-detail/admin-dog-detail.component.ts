@@ -19,7 +19,8 @@ export class AdminDogDetailComponent implements OnInit {
   dog: Dog = {
     name: '',
     description: '',
-    pictures: []
+    pictures: [],
+    profilePictureIndex: 0
   };
 
   constructor(private snackBar: MatSnackBar, private route: ActivatedRoute, private service: DogService, private storage: AngularFireStorage) { }
@@ -46,10 +47,43 @@ export class AdminDogDetailComponent implements OnInit {
     }
   }
 
+  deleteDog(dog:any): void{
+    if(dog.pictures){
+      dog.pictures.forEach(picture => {      
+        this.storage.storage.refFromURL(picture).delete();
+      });
+    }
+    this.service.deleteDog(this.dogType, dog.key).then(response => {            
+      this.snackBar.open("dog deleted!", "Close", {
+        duration: 2000,
+      });      
+    })
+    .catch(error => {            
+      this.snackBar.open(error, "Close", {
+        duration: 2000,
+      });
+    });
+  }
+  
   deletePicture(picture:string, index: number){
     this.storage.storage.refFromURL(picture).delete();
-    this.service.deletePicture(this.dogType, this.key, index).then(response => {            
+    this.service.deletePicture(this.dogType, this.key, index).then(() => {            
       this.snackBar.open("picture deleted!", "Close", {
+        duration: 2000,
+      });      
+    })
+    .catch(error => {            
+      this.snackBar.open(error, "Close", {
+        duration: 2000,
+      });
+    }); 
+  }
+
+  setAsProfile(index: number){
+    this.dog.profilePictureIndex = index;
+    this.service.updateDog(this.dogType, this.key, this.dog)
+    .then(() => {            
+      this.snackBar.open("profile picture updated!", "Close", {
         duration: 2000,
       });      
     })
@@ -78,7 +112,7 @@ export class AdminDogDetailComponent implements OnInit {
     });    
     Promise.all(this.promises).then(() => {
       this.service.updateDog(this.dogType, this.key, dog).then(() => {            
-        this.snackBar.open("finished upload!", "Close", {
+        this.snackBar.open("finished update!", "Close", {
           duration: 2000,
         });      
       })

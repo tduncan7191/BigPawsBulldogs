@@ -13,3 +13,8 @@ body{
 html, body{
     height: 100%;
 }
+
+h1{
+  font-family: 'Great Vibes', Helvetica, sans-serif;
+  color: #000000;
+}

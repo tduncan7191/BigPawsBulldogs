@@ -1,6 +1,7 @@
 
 .card{
-    margin:1%;
+    margin:5px;
+    text-align: center;
   }
   
   img{
@@ -9,14 +10,3 @@
     cursor: pointer;
   }
   
-  .text-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  
-  .centered {
-    font-family: sans-serif;
-    font-size: 1.3em;
-    font-weight: bold;
-    text-align:center;
-  }

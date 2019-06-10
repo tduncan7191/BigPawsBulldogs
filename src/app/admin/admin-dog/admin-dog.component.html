@@ -1,22 +1,18 @@
-
-<div fxLayout='row wrap' fxLayoutGap="2rem" fxLayoutAlign="center center">
-  <mat-card fxFlex.gt-md="20" fxFlex.sm="40" fxFlex.xs="100" class="card">  
-    <mat-card-header>
-      Add {{this.dogType}}
-    </mat-card-header>
-    <mat-card-content>
-      <file-upload></file-upload>
-    </mat-card-content> 
-  </mat-card>  
-  <mat-card fxFlex.gt-md="20" fxFlex.sm="40" fxFlex.xs="100" *ngFor="let dog of dogs" class="card">        
-    <mat-card-header>
-      <mat-card-title style="cursor: pointer" routerLink="./{{dog.key}}">{{dog.name}}</mat-card-title>
-      <div class="button-row">
-          <button mat-icon-button (click)="deleteDog(dog)">
-            <mat-icon>delete</mat-icon>
-          </button>
+<div class="container"> 
+  <div fxLayout='row wrap' fxLayoutAlign="center center">     
+    <div fxFlex.gt-md="30" fxFlex.sm="40" fxFlex.xs="100">
+      <div class="card">        
+        <h2>Add {{dogType}}</h2>    
+        <file-upload></file-upload>
       </div>
-    </mat-card-header>
-    <img style="cursor: pointer" *ngIf="dog.pictures" mat-card-image src="{{dog.pictures[0]}}" routerLink="./{{dog.key}}">
-  </mat-card>
+    </div>
+    <div class="content" fxFlex.gt-md="30" fxFlex.sm="40" fxFlex.xs="100" *ngFor="let dog of dogs; let i = index">
+      <div *ngIf="dog.pictures"> 
+        <div class="card">  
+            <h1>{{dog.name}}</h1>          
+          <img style="cursor: pointer" src="{{dog.pictures[dog.profilePictureIndex]}}" routerLink="./{{dog.key}}">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

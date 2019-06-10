@@ -34,7 +34,7 @@ export class ContactComponent implements OnInit {
         return;
     }
     this.contact = {
-      toEmail: 'tduncan@redemptionplus.com',//'krduncan71@yahoo.com',
+      toEmail: 'krduncan71@yahoo.com',
       name: this.form.value.name, 
       email: this.form.value.email, 
       message: this.form.value.message

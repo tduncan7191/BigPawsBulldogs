@@ -20,7 +20,8 @@ export class FileUploadComponent {
   dog: Dog = {
     name: '',
     description: '',
-    pictures: []
+    pictures: [],
+    profilePictureIndex: 0
   }
 
   constructor(private snackBar: MatSnackBar, private route: ActivatedRoute, private storage: AngularFireStorage, private service: DogService) { }
